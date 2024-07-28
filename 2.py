@@ -25,11 +25,6 @@ def train_evaluate_model(model, X_train, y_train, X_test, y_test):
     y_pred = model.predict(X_test)
     st.write(classification_report(y_test, y_pred))
     cm = confusion_matrix(y_test, y_pred)
-    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
-    plt.xlabel('Predicted')
-    plt.ylabel('Actual')
-    st.pyplot(plt.gcf())
-    plt.clf()
 
 rf_clf = RandomForestClassifier(n_estimators=100, random_state=42)
 rf_clf.fit(X_train, y_train)
